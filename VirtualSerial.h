@@ -44,7 +44,7 @@
 		#include <string.h>
 		#include <stdio.h>
 
-		#include "Descriptors.h"
+		#include "MyDescriptors.h"
 
 		#include <USB.h>
 		#include <Platform.h>

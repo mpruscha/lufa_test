@@ -82,7 +82,6 @@ int main(void)
 	/* Create a regular character stream for the interface so that it can be used with the stdio.h functions */
 	CDC_Device_CreateStream(&VirtualSerial_CDC_Interface, &USBSerialStream);
 
-	LEDs_SetAllLEDs(LEDMASK_USB_NOTREADY);
 	GlobalInterruptEnable();
 
 	for (;;)
@@ -120,30 +119,16 @@ void SetupHardware(void)
 #endif
 
 	/* Hardware Initialization */
-	Joystick_Init();
-	LEDs_Init();
 	USB_Init();
 }
 
 /** Checks for changes in the position of the board joystick, sending strings to the host upon each change. */
 void CheckJoystickMovement(void)
 {
-	uint8_t     JoyStatus_LCL = Joystick_GetStatus();
 	char*       ReportString  = NULL;
 	static bool ActionSent    = false;
 
-	if (JoyStatus_LCL & JOY_UP)
-	  ReportString = "Joystick Up\r\n";
-	else if (JoyStatus_LCL & JOY_DOWN)
-	  ReportString = "Joystick Down\r\n";
-	else if (JoyStatus_LCL & JOY_LEFT)
-	  ReportString = "Joystick Left\r\n";
-	else if (JoyStatus_LCL & JOY_RIGHT)
-	  ReportString = "Joystick Right\r\n";
-	else if (JoyStatus_LCL & JOY_PRESS)
-	  ReportString = "Joystick Pressed\r\n";
-	else
-	  ActionSent = false;
+	ActionSent = false;
 
 	if ((ReportString != NULL) && (ActionSent == false))
 	{
@@ -160,13 +145,11 @@ void CheckJoystickMovement(void)
 /** Event handler for the library USB Connection event. */
 void EVENT_USB_Device_Connect(void)
 {
-	LEDs_SetAllLEDs(LEDMASK_USB_ENUMERATING);
 }
 
 /** Event handler for the library USB Disconnection event. */
 void EVENT_USB_Device_Disconnect(void)
 {
-	LEDs_SetAllLEDs(LEDMASK_USB_NOTREADY);
 }
 
 /** Event handler for the library USB Configuration Changed event. */
@@ -175,8 +158,6 @@ void EVENT_USB_Device_ConfigurationChanged(void)
 	bool ConfigSuccess = true;
 
 	ConfigSuccess &= CDC_Device_ConfigureEndpoints(&VirtualSerial_CDC_Interface);
-
-	LEDs_SetAllLEDs(ConfigSuccess ? LEDMASK_USB_READY : LEDMASK_USB_ERROR);
 }
 
 /** Event handler for the library USB Control Request reception event. */

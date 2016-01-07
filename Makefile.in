@@ -103,7 +103,7 @@ CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
 am_lufa_test_OBJECTS = lufa_test-VirtualSerial.$(OBJEXT) \
-	lufa_test-Descriptors.$(OBJEXT)
+	lufa_test-MyDescriptors.$(OBJEXT)
 lufa_test_OBJECTS = $(am_lufa_test_OBJECTS)
 lufa_test_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_@AM_V@)
@@ -276,8 +276,8 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-lufa_test_SOURCES = VirtualSerial.c Descriptors.c
-lufa_test_CPPFLAGS = -std=c99
+lufa_test_SOURCES = VirtualSerial.c MyDescriptors.c
+lufa_test_CPPFLAGS = -std=c99 -Iinclude/
 all: conf.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
@@ -384,7 +384,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lufa_test-Descriptors.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lufa_test-MyDescriptors.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lufa_test-VirtualSerial.Po@am__quote@
 
 .c.o:
@@ -417,19 +417,19 @@ lufa_test-VirtualSerial.obj: VirtualSerial.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lufa_test_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o lufa_test-VirtualSerial.obj `if test -f 'VirtualSerial.c'; then $(CYGPATH_W) 'VirtualSerial.c'; else $(CYGPATH_W) '$(srcdir)/VirtualSerial.c'; fi`
 
-lufa_test-Descriptors.o: Descriptors.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lufa_test_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT lufa_test-Descriptors.o -MD -MP -MF $(DEPDIR)/lufa_test-Descriptors.Tpo -c -o lufa_test-Descriptors.o `test -f 'Descriptors.c' || echo '$(srcdir)/'`Descriptors.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/lufa_test-Descriptors.Tpo $(DEPDIR)/lufa_test-Descriptors.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='Descriptors.c' object='lufa_test-Descriptors.o' libtool=no @AMDEPBACKSLASH@
+lufa_test-MyDescriptors.o: MyDescriptors.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lufa_test_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT lufa_test-MyDescriptors.o -MD -MP -MF $(DEPDIR)/lufa_test-MyDescriptors.Tpo -c -o lufa_test-MyDescriptors.o `test -f 'MyDescriptors.c' || echo '$(srcdir)/'`MyDescriptors.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/lufa_test-MyDescriptors.Tpo $(DEPDIR)/lufa_test-MyDescriptors.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='MyDescriptors.c' object='lufa_test-MyDescriptors.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lufa_test_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o lufa_test-Descriptors.o `test -f 'Descriptors.c' || echo '$(srcdir)/'`Descriptors.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lufa_test_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o lufa_test-MyDescriptors.o `test -f 'MyDescriptors.c' || echo '$(srcdir)/'`MyDescriptors.c
 
-lufa_test-Descriptors.obj: Descriptors.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lufa_test_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT lufa_test-Descriptors.obj -MD -MP -MF $(DEPDIR)/lufa_test-Descriptors.Tpo -c -o lufa_test-Descriptors.obj `if test -f 'Descriptors.c'; then $(CYGPATH_W) 'Descriptors.c'; else $(CYGPATH_W) '$(srcdir)/Descriptors.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/lufa_test-Descriptors.Tpo $(DEPDIR)/lufa_test-Descriptors.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='Descriptors.c' object='lufa_test-Descriptors.obj' libtool=no @AMDEPBACKSLASH@
+lufa_test-MyDescriptors.obj: MyDescriptors.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lufa_test_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT lufa_test-MyDescriptors.obj -MD -MP -MF $(DEPDIR)/lufa_test-MyDescriptors.Tpo -c -o lufa_test-MyDescriptors.obj `if test -f 'MyDescriptors.c'; then $(CYGPATH_W) 'MyDescriptors.c'; else $(CYGPATH_W) '$(srcdir)/MyDescriptors.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/lufa_test-MyDescriptors.Tpo $(DEPDIR)/lufa_test-MyDescriptors.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='MyDescriptors.c' object='lufa_test-MyDescriptors.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lufa_test_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o lufa_test-Descriptors.obj `if test -f 'Descriptors.c'; then $(CYGPATH_W) 'Descriptors.c'; else $(CYGPATH_W) '$(srcdir)/Descriptors.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lufa_test_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o lufa_test-MyDescriptors.obj `if test -f 'MyDescriptors.c'; then $(CYGPATH_W) 'MyDescriptors.c'; else $(CYGPATH_W) '$(srcdir)/MyDescriptors.c'; fi`
 
 ID: $(am__tagged_files)
 	$(am__define_uniq_tagged_files); mkid -fID $$unique

@@ -35,8 +35,8 @@
  *  the device's capabilities and functions.
  */
 
-#include "Descriptors.h"
-
+#include "MyDescriptors.h"
+#include "include/LUFAConfig.h"
 
 /** Device descriptor structure. This descriptor, located in FLASH memory, describes the overall
  *  device characteristics, including the supported USB version, control endpoint size and the
