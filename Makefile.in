@@ -105,7 +105,7 @@ PROGRAMS = $(bin_PROGRAMS)
 am_lufa_test_OBJECTS = lufa_test-VirtualSerial.$(OBJEXT) \
 	lufa_test-MyDescriptors.$(OBJEXT)
 lufa_test_OBJECTS = $(am_lufa_test_OBJECTS)
-lufa_test_LDADD = $(LDADD)
+lufa_test_DEPENDENCIES =
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -278,6 +278,7 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 lufa_test_SOURCES = VirtualSerial.c MyDescriptors.c
 lufa_test_CPPFLAGS = -std=c99 -Iinclude/
+lufa_test_LDADD = -L/usr/local/avr-gcc/lib -llufa
 all: conf.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 

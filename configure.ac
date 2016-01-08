@@ -11,7 +11,7 @@ AC_PROG_CC_STDC
 AC_PROG_RANLIB
 AM_PROG_AR
 
-AC_SEARCH_LIBS([USB_Init], [lufa], [], [])
+#AC_SEARCH_LIBS([USB_Init], [lufa], [], [AC_MSG_ERROR([unable to find the lufa library]) ])
 
-AC_OUTPUT([Makefile 
+AC_OUTPUT([Makefile
           ])

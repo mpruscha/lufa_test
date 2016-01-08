@@ -1,2 +1,5 @@
 build
+*.swp
+*~
+autom4te.cache
 
